@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Surah Explorer</title>
@@ -9,7 +10,7 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", async ()=> {
+        document.addEventListener("DOMContentLoaded", async () => {
             const surahDD = document.querySelector('#surahDD');
             const surahs = await getSurahs();
             console.log(surahs);
@@ -19,7 +20,7 @@
                 const option = document.createElement('option')
                 option.value = s.id
                 option.text = `${s.name_simple} - ${s.name_arabic}`
-                
+
                 surahDD.appendChild(option)
             });
 
@@ -35,9 +36,15 @@
         });
 
         async function onSurahChange(surahId) {
+            console.log("Surah Id: ", surahId);
             const verses = await getVerses(surahId);
+            console.log(verses);
+
             const versesHtml = `
-                ${verses.map( (v, i) => `<li>${v.text_uthmani} (${i+1})</li>`).join(' ')}
+                ${verses.map((v, i) => {
+                console.log(`<li>${v.text_uthmani} (${i + 1})</li>`);
+                return `<li>${v.text_uthmani} (${i + 1})</li>`
+            }).join(' ')}
             `;
             document.querySelector('#versesList').innerHTML = versesHtml;
         }
@@ -46,17 +53,18 @@
             const url = "https://api.quran.com/api/v4/chapters";
             const response = await fetch(url);
             const surahs = await response.json();
-            return  surahs.chapters;
+            return surahs.chapters;
         }
 
         async function getVerses(surahId) {
             const url = `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`;
             const response = await fetch(url);
             const verses = await response.json();
-            return  verses.verses;
+            return verses.verses;
         }   
     </script>
 </head>
+
 <body>
     <label for="surahDD">Surah</label>
     <select id="surahDD" onchange="onSurahChange(this.value)">
@@ -64,4 +72,5 @@
     <ul id="versesList" style="direction: rtl;">
     </ul>
 </body>
+
 </html>

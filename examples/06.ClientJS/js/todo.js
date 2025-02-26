@@ -1,6 +1,9 @@
 const addToDoButton = document.querySelector("#addToDo");
 const toDoList = document.querySelector("#toDoList");
 const toDoInputField = document.querySelector("#inputField");
+addToDoButton.addEventListener("click", addToDo);
+//addToDoButton.removeEventListener("click", addToDo);
+//
 
 function addToDo() {
   const toDo = toDoInputField.value;
@@ -9,24 +12,25 @@ function addToDo() {
     return;
   }
 
-  const p = document.createElement("p");
-  p.classList.add("paragraph-styling");
-  p.innerText = toDo;
-  toDoList.appendChild(p);
+  const li = document.createElement("li");
+  li.classList.add("paragraph-styling");
+  li.innerText = toDo;
+  toDoList.appendChild(li);
   toDoInputField.value = "";
-  p.addEventListener("click", function () {
-    if (p.style.textDecoration === "line-through") {
-      p.style.textDecoration = "none";
+  li.addEventListener("click", () => {
+    if (li.style.textDecoration === "line-through") {
+      li.style.textDecoration = "none";
     } else {
-      p.style.textDecoration = "line-through";
+      li.style.textDecoration = "line-through";
     }
   });
-  p.addEventListener("dblclick", function () {
-    toDoList.removeChild(p);
+  li.addEventListener("dblclick", function () {
+    toDoList.removeChild(li);
   });
 }
 
 function handleKeyPress(event) {
+  console.log(event.target.value);
   if (event.key === "Enter") {
     addToDo();
   }
