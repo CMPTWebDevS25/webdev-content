@@ -1,0 +1,62 @@
+[
+  {
+    "ID": "1",
+    "Type": "Check",
+    "Length": "232",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00001Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "?????????????????021<1300058>101569>2111113842460001>60:"
+  },
+  {
+    "ID": "2",
+    "Type": "Check",
+    "Length": "176",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00002Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "<00<4863813>350810>0000000005122585>3??"
+  },
+  {
+    "ID": "3",
+    "Type": "Check",
+    "Length": "173",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00003Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "086<6838239>021550>0000086001139951>5:"
+  },
+  {
+    "ID": "4",
+    "Type": "Check",
+    "Length": "196",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00004Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "<00<8642873>022270>0003450003812267>68:"
+  },
+  {
+    "ID": "5",
+    "Type": "Check",
+    "Length": "196",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00005Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "00??0??1?091??>??72?0?:;2?1?0?04020006>15:"
+  },
+  {
+    "ID": "6",
+    "Type": "Check",
+    "Length": "197",
+    "FrontImage1": "/images/25892e17-80f6-415f-9c65-7395632f0223/Doc00006Front1.jpg",
+    "FrontImage2": "",
+    "RearImage1": "",
+    "RearImage2": "",
+    "MICR": "096<3100457>127270>2121145564360009>83:"
+  }
+]
