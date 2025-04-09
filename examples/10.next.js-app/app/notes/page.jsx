@@ -1,14 +1,17 @@
 import Link from 'next/link'
 import styles from './Notes.module.css'
-import CreateNote from './CreateNote'
-import fs from 'fs'
+import {readFile} from 'node:fs/promises'
 import path from 'path'
+import NoteEditor from './NoteEditor'
 
 const getNotes = async () => {
+  //const notesData = await fetch('http://localhost:3000/api/notes')
+  // apiKey
+  //return await notesData.json()
   const filePath = path.join(process.cwd(), 'data', 'db.json')
-  const jsonData = fs.readFileSync(filePath, 'utf8')
-  const data = JSON.parse(jsonData)
-  return data.notes
+  const data = await readFile(filePath, "utf-8");
+  const json = JSON.parse(data);
+  return json.notes
 }
 
 export default async function NotesPage() {
@@ -24,7 +27,9 @@ export default async function NotesPage() {
         })}
       </div>
 
-      <CreateNote />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <NoteEditor />
+      </div>
     </div>
   )
 }
@@ -33,11 +38,11 @@ function Note({ note }) {
   const { id, title, content } = note // || {}
 
   return (
-    <Link href={`/notes/${id}`}>
       <div className={styles.note}>
-        <h2>{title}</h2>
-        <h5>{content}</h5>
+        <Link href={`/notes/${id}`}>
+          <h2>{title}</h2>
+        </Link>
+        <p>{content}</p>
       </div>
-    </Link>
   )
 }

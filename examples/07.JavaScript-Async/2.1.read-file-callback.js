@@ -1,13 +1,17 @@
 // Important traditional fs library to read/write files using callbacks
-import fs from 'fs';
+import fs from "fs";
 
 // Calling readFile this was will not work because it is an async function
 // that expects a callback function
-/*
-fs.readFile('data/student.json', (err, content) => {
-    const json = JSON.parse(content);
-    console.log(json);
-}); */
+
+fs.readFile("data/student.json", (err, data) => {console.log(JSON.parse(data));}); // undefined
+
+
+fs.readFile("data/student.json", (err, content) => {
+  const json = JSON.parse(content);
+  console.log(json);
+});
+
 
 function getStudent(studentId, cb) {
     let fileContent = fs.readFile('data/student.json', function (err, data) {
@@ -42,5 +46,4 @@ getStudent(2015091, function (err, student) {
     } else {
         console.log(student);
     }
-})
-
+}) 
