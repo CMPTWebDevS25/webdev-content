@@ -16,7 +16,7 @@ export async function incrementLike(postId) {
   try {
     const likesCount = await db.incrementPostLike(postId);
     console.log(`SERVER ACTION: Toggled like for post ${postId}`);
-    revalidatePath("/posts");
+    //revalidatePath("/posts");
     return likesCount;
   } catch (error) {
     console.error(
