@@ -37,8 +37,8 @@ function LoginButton() {
 
   return (
     <Button onClick={() => {
-      setCurrentUser({ name: 'Advika' })
-    }}>Log in as Advika</Button>
+      setCurrentUser({ name: 'Ali' })
+    }}>Log in as Ali</Button>
   );
 }
 

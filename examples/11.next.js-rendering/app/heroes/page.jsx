@@ -3,7 +3,7 @@ import { headers } from "next/headers"
 export default async function Page() {
     const headersList = await headers()
     console.log("Headers: ", headersList.get('user-agent'))
-    const data = await fetch('http://localhost:8080/api/heroes')
+    const data = await fetch('http://localhost:8080/api/heroes', { cache: 'force-cache' })
     const heroes = await data.json()
     console.log("Heroes count: ", heroes.length)
     return (

@@ -1,5 +1,8 @@
 // Next.js will invalidate the cache when a
 // request comes in, at most once every 60 seconds.
+
+// products/[id]/page.js
+
 export const revalidate = 60
  
 // We'll prerender only the params from `generateStaticParams` at build time.
@@ -8,23 +11,24 @@ export const revalidate = 60
 export const dynamicParams = true // or false, to 404 on unknown paths
  
 export async function generateStaticParams() {
-  const posts = await fetch('https://api.vercel.app/blog').then((res) =>
+  const resp = await fetch("https://test.com/api/products")
+  const products = await resp.json()
+  return products.map((p) => ({
+      id: p.id.toString() 
+    }))
+    }
+  
+  /* const posts = await fetch('https://api.vercel.app/blog').then((res) =>
     res.json()
   )
   return posts.map((post) => ({
     id: String(post.id),
   }))
-}
+} */
  
 export default async function Page({ params }) {
   const { id } = await params
-  const post = await fetch(`https://api.vercel.app/blog/${id}`).then((res) =>
-    res.json()
-  )
-  return (
-    <main>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-    </main>
-  )
+  const response = await fetch(`https://test.com/api/products/${id}`)
+  const product = await response.json()
+  return (<div>{product.id} - {product.name}</div>)
 }

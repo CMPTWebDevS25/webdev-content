@@ -12,6 +12,7 @@ import UserInfo from "./components/UserInfo";
 export default function Home() {
   return (
     <main>
+      {/*   <Bulb /> */}
       <SurahViewer />
       {/*       <UserInfo firstName="Ali" lastName="Saleh"></UserInfo>
 
