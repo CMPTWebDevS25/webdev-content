@@ -1,0 +1,13 @@
+<div class="pet-card">
+    <img src="${pet.photoUrl}" alt="${pet.name}">
+    <h3>${pet.name}</h3>
+    <p><strong>Species:</strong> ${pet.species}</p>
+    <p><strong>Age:</strong> ${pet.age} years</p>
+    <p><strong>Status:</strong> ${pet.status}</p>
+    <button class="btn ${
+        pet.status === "Available" ? "adopt" : "return"
+    } ${pet.status === "Adopted" ? "toggled" : ""}" 
+            onclick="handlePetAction(${pet.id})">
+        ${pet.status === "Available" ? "Adopt" : "Return"}
+    </button>
+</div>
