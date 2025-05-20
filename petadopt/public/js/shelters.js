@@ -1,0 +1,21 @@
+const shelters = [
+    {
+        id: 1,
+        name: "Happy Paws Shelter",
+        city: "New York",
+        petsAvailable: 5
+    },
+
+    {
+        id: 2,
+        name: "Furry Friends Haven",
+        city: "Los Angeles",
+        petsAvailable: 7
+    },
+    {
+        id: 3,
+        name: "Paws & Claws Rescue",
+        city: "Chicago",
+        petsAvailable: 4
+    }
+]; 
